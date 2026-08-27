@@ -1,0 +1,18 @@
+# Environment variables
+.env
+ClaudeAPI/.env
+*.env
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
