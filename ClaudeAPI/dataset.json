@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Parse an AWS S3 bucket policy JSON and extract all principal ARNs that have the 's3:GetObject' permission"
+  },
+  {
+    "task": "Write a Python function that validates if a given string is a valid AWS IAM role ARN using regex matching"
+  },
+  {
+    "task": "Create a JSON CloudFormation template snippet that defines an S3 bucket with versioning enabled and public access blocked"
+  }
+]
