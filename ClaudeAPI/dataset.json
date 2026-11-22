@@ -1,11 +1,17 @@
 [
   {
-    "task": "Parse an AWS S3 bucket policy JSON and extract all principal ARNs that have the 's3:GetObject' permission"
+    "task": "Parse an AWS S3 bucket policy JSON and extract all principal ARNs that have the 's3:GetObject' permission",
+    "language": "Python",
+    "complexity": "medium"
   },
   {
-    "task": "Write a Python function that validates if a given string is a valid AWS IAM role ARN using regex matching"
+    "task": "Create a JSON CloudFormation template snippet that defines an IAM role with a trust relationship allowing EC2 instances to assume the role",
+    "language": "JSON",
+    "complexity": "medium"
   },
   {
-    "task": "Create a JSON CloudFormation template snippet that defines an S3 bucket with versioning enabled and public access blocked"
+    "task": "Write a regex pattern to validate and extract AWS access key IDs (format: AKIA followed by 16 uppercase alphanumeric characters) from a text file",
+    "language": "Regex",
+    "complexity": "easy"
   }
 ]
