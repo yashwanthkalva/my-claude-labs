@@ -1,11 +1,14 @@
 [
   {
-    "task": "Parse an AWS S3 bucket policy JSON document and extract all Principal ARNs that have s3:GetObject permission"
+    "task": "Parse an AWS S3 bucket name and extract the region from an S3 URI in the format s3://bucket-name-region/path",
+    "format": "regex"
   },
   {
-    "task": "Write a Python function that takes an AWS CloudWatch log stream name and returns a formatted dictionary with log group name, stream name, and creation timestamp"
+    "task": "Create a JSON policy document that allows an IAM user to read and list objects in a specific S3 bucket named 'my-data-bucket'",
+    "format": "json"
   },
   {
-    "task": "Create a regex pattern that validates and extracts the AWS account ID, region, and service name from an ARN string in the format 'arn:aws:service:region:account-id:resource'"
+    "task": "Write a Python function that takes an AWS CloudWatch log message timestamp in ISO 8601 format and returns the number of hours elapsed since that time",
+    "format": "python"
   }
 ]
