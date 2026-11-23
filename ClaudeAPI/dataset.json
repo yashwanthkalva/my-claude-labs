@@ -1,14 +1,17 @@
 [
   {
-    "task": "Parse an AWS S3 bucket name and extract the region from an S3 URI in the format s3://bucket-name-region/path",
-    "format": "regex"
+    "task": "Parse an AWS S3 bucket policy JSON and extract all principal ARNs that have the 's3:GetObject' permission",
+    "format": "python",
+    "solution_criteria": "Function should return a list of unique ARNs from the policy document that have s3:GetObject permission, handling both wildcard and specific principals"
   },
   {
-    "task": "Create a JSON policy document that allows an IAM user to read and list objects in a specific S3 bucket named 'my-data-bucket'",
-    "format": "json"
+    "task": "Create a JSON CloudFormation template snippet for an AWS Lambda execution role with basic permissions for CloudWatch Logs and S3 read access",
+    "format": "json",
+    "solution_criteria": "Valid CloudFormation IAM role resource with inline policy granting logs:CreateLogGroup, logs:CreateLogStream, logs:PutLogEvents, and s3:GetObject permissions"
   },
   {
-    "task": "Write a Python function that takes an AWS CloudWatch log message timestamp in ISO 8601 format and returns the number of hours elapsed since that time",
-    "format": "python"
+    "task": "Create a regex pattern that validates AWS ARN format for any AWS service resource",
+    "format": "regex",
+    "solution_criteria": "Pattern should match valid ARN structure (arn:partition:service:region:account-id:resource-type/resource-id) and reject invalid formats, supporting optional wildcards"
   }
 ]
