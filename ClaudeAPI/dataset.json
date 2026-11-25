@@ -1,17 +1,49 @@
 [
   {
-    "task": "Parse an AWS S3 bucket policy JSON and extract all principal ARNs that have the 's3:GetObject' permission",
-    "format": "python",
-    "solution_criteria": "Function should return a list of unique ARNs from the policy document that have s3:GetObject permission, handling both wildcard and specific principals"
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Optimize carbohydrate timing and intake for a 20km long run training session scheduled for 10:00 AM",
+      "restrictions": "No gluten, vegetarian"
+    },
+    "solution_criteria": [
+      "Meal plan covers full day (breakfast, pre-workout, post-workout, and other meals) with appropriate timing around the 20km run",
+      "Carbohydrate-rich meals are strategically timed: 2-3 hours before run and within 30-60 minutes after run",
+      "All meals and snacks are vegetarian and gluten-free",
+      "Plan is compact and concise (fits on a single reference page or brief format)"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a elite endurance athlete (marathon runner) requiring high carbohydrate intake and specific timing around long training sessions"
   },
   {
-    "task": "Create a JSON CloudFormation template snippet for an AWS Lambda execution role with basic permissions for CloudWatch Logs and S3 read access",
-    "format": "json",
-    "solution_criteria": "Valid CloudFormation IAM role resource with inline policy granting logs:CreateLogGroup, logs:CreateLogStream, logs:PutLogEvents, and s3:GetObject permissions"
+    "prompt_inputs": {
+      "height": "180 cm",
+      "weight": "90 kg",
+      "goal": "Build muscle mass with caloric surplus for strength training",
+      "restrictions": "None"
+    },
+    "solution_criteria": [
+      "Meal plan contains 4-5 meals distributed throughout the day with high protein at each meal (minimum 30g per meal)",
+      "Total daily calories create a moderate surplus appropriate for muscle building (approximately 500+ kcal above maintenance for 90kg athlete)",
+      "Plan prioritizes whole foods suitable for a strength athlete with minimal cardio focus"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) needing high protein distribution and caloric surplus for muscle building with minimal cardio"
   },
   {
-    "task": "Create a regex pattern that validates AWS ARN format for any AWS service resource",
-    "format": "regex",
-    "solution_criteria": "Pattern should match valid ARN structure (arn:partition:service:region:account-id:resource-type/resource-id) and reject invalid formats, supporting optional wildcards"
+    "prompt_inputs": {
+      "height": "180",
+      "weight": "78",
+      "goal": "Optimize performance and recovery for soccer training with morning session (10 AM) and evening match (7 PM)",
+      "restrictions": "Vegetarian, no dairy"
+    },
+    "solution_criteria": [
+      "Meal plan includes 4-5 eating occasions with appropriate timing around both training sessions",
+      "Macronutrient distribution supports soccer performance (adequate carbohydrates, protein, and healthy fats)",
+      "Hydration strategy specified for pre/during/post training and match",
+      "All meals comply with vegetarian and dairy-free restrictions"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a sport-specific athlete (soccer player) requiring balanced macronutrients, hydration strategy, and meal timing around both morning and evening training sessions"
   }
 ]
