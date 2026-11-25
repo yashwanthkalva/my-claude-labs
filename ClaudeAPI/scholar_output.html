@@ -1,0 +1,259 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">4</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">6.5 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">75.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with interdisciplinary passage containing mixed topics (biology, ethics, policy) to verify accurate identification of multiple distinct subject areas</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in CRISPR gene-editing technology have demonstrated remarkable therapeutic potential for treating genetic diseases, yet significant ethical concerns persist regarding germline modifications and equitable access. While laboratory studies show 94% success rates in correcting mutations associated with cystic fibrosis and sickle cell anemia, regulatory frameworks remain fragmented across jurisdictions. Policymakers must balance innovation incentives with biosafety protocols, while bioethicists debate the moral implications of human enhancement versus disease prevention. Furthermore, patent landscapes and pharmaceutical pricing models directly influence whether these treatments remain accessible only to wealthy populations or can be distributed equitably in developing nations.</td>
+                <td class="criteria">• Extracts all major subject areas: biology/genetics, ethics, and policy/regulatory topics<br>• Returns output as a JSON array of strings<br>• Identifies distinct topics without redundancy or over-granulation</td>
+                <td class="output"><pre>```json
+[
+  "CRISPR gene-editing technology",
+  "genetic diseases",
+  "ethical concerns",
+  "germline modifications",
+  "equitable access",
+  "cystic fibrosis",
+  "sickle cell anemia",
+  "regulatory frameworks",
+  "biosafety protocols",
+  "human enhancement",
+  "disease prevention",
+  "bioethics",
+  "patent landscapes",
+  "pharmaceutical pricing",
+  "developing nations"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings, contains only topic names without commentary, and contains nothing else. It successfully extracts topics across all three major domains requested in the criteria. The extraction is thorough and well-balanced. The main deficiency is the omission of 'innovation incentives,' which appears as a policy concept that policymakers must consider ('balance innovation incentives with biosafety protocols'). This is a minor but identifiable gap in completeness. Otherwise, the solution demonstrates good judgment in topic selection and granularity.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with passage containing implicit and subtle topics that require contextual understanding beyond surface-level keyword matching</td>
+                <td class="prompt-inputs"><strong>content:</strong> The epistemological implications of quantum mechanics have long challenged our understanding of observation and reality. While early interpretations emphasized the role of the observer in collapsing wave functions, contemporary research increasingly examines how decoherence mechanisms operate at macroscopic scales, suggesting that the apparent classical world emerges through environmental interaction rather than conscious measurement. This perspective shifts focus from fundamental measurement paradoxes toward the thermodynamic constraints governing information loss in complex systems, connecting quantum foundations to statistical mechanics and information theory in ways that bear unexpected relevance to artificial neural network architectures and their capacity for pattern recognition.</td>
+                <td class="criteria">• Identifies both explicitly named topics (quantum mechanics, decoherence, wave functions) and implicitly conveyed topics (epistemology, observation, measurement, thermodynamics, information theory, neural networks, pattern recognition)<br>• Demonstrates contextual understanding by recognizing that 'environmental interaction' and 'information loss' are distinct conceptual topics despite being embedded within discussions of decoherence<br>• Avoids treating surface-level terminology as independent topics while capturing the underlying subject areas that give the passage intellectual substance</td>
+                <td class="output"><pre>```json
+[
+  "quantum mechanics",
+  "epistemology",
+  "observation and reality",
+  "wave function collapse",
+  "decoherence mechanisms",
+  "macroscopic scales",
+  "environmental interaction",
+  "measurement paradoxes",
+  "thermodynamic constraints",
+  "information loss",
+  "statistical mechanics",
+  "information theory",
+  "artificial neural networks",
+  "pattern recognition"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully complies with mandatory requirements: it is valid JSON containing an array of topic strings with no commentary. It performs very well on the secondary criteria, identifying both explicit topics (quantum mechanics, decoherence mechanisms, statistical mechanics) and implicit ones (epistemology, information theory, neural networks). It successfully recognizes 'environmental interaction' and 'information loss' as distinct conceptual topics. Minor weaknesses include treating 'observation and reality' as monolithic and including 'macroscopic scales' as a topic rather than a contextual qualifier. The extraction of 'conscious measurement' as a contrasting perspective could strengthen the analysis, though its omission is not critical. Overall, the solution demonstrates solid contextual comprehension and meets the stated evaluation criteria effectively.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with highly technical domain-specific passage (e.g., quantum physics or molecular biology) to verify handling of specialized terminology and niche concepts</td>
+                <td class="prompt-inputs"><strong>content:</strong> The quantum entanglement phenomenon exhibits non-local correlations that persist even when spatially separated particles are measured in complementary bases, violating Bell's inequalities and constraining hidden variable theories. Recent advances in photonic quantum computing leverage silicon photonics to implement boson sampling protocols that demonstrate quantum advantage, while simultaneously exploring topological error correction through stabilizer codes that encode logical qubits in 2D surface lattices. Furthermore, variational quantum eigensolvers (VQE) combined with ansatz circuits derived from ansatz optimization strategies enable efficient calculation of ground-state energies in molecular Hamiltonians, particularly for fermionic systems described using the Jordan-Wigner transformation and qubit tapering techniques to reduce circuit depth.</td>
+                <td class="criteria">• Extracts all major technical concepts and specialized terminology (e.g., quantum entanglement, Bell's inequalities, boson sampling, stabilizer codes, VQE, Jordan-Wigner transformation)<br>• Returns output as a valid JSON array of strings<br>• Captures both foundational concepts and advanced methodological approaches without omissions</td>
+                <td class="output"><pre>```json
+[
+  "quantum entanglement",
+  "non-local correlations",
+  "Bell's inequalities",
+  "hidden variable theories",
+  "photonic quantum computing",
+  "silicon photonics",
+  "boson sampling",
+  "quantum advantage",
+  "topological error correction",
+  "stabilizer codes",
+  "surface codes",
+  "logical qubits",
+  "variational quantum eigensolvers (VQE)",
+  "ansatz circuits",
+  "ground-state energies",
+  "molecular Hamiltonians",
+  "fermionic systems",
+  "Jordan-Wigner transformation",
+  "qubit tapering"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is valid JSON, contains only topic strings without commentary, and captures the majority of major concepts. However, there are notable omissions of explicitly mentioned topics ('complementary bases', 'ansatz optimization strategies') and loss of specificity ('2D surface lattices' simplified to 'surface codes'). The extraction is strong overall but incomplete relative to the secondary criterion of capturing topics 'without omissions.' These gaps prevent a perfect score despite solid execution of the core requirements.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with brief passage or passage with overlapping/nested topics to verify the prompt handles edge cases like topic ambiguity and determines appropriate granularity level</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in machine learning have demonstrated significant improvements in natural language processing through transformer architectures. These neural networks utilize attention mechanisms to process sequential data, enabling applications in machine translation, sentiment analysis, and question-answering systems. The scalability of large language models depends critically on distributed computing infrastructure, while their interpretability remains challenging due to the black-box nature of deep learning. Furthermore, ethical concerns regarding bias in training data and environmental costs of computational resources have emerged as important considerations in AI development.</td>
+                <td class="criteria">• Extracts topics at appropriate granularity level, avoiding both over-specificity (e.g., 'carbon-fiber composite blades') and excessive generalization (e.g., 'technology')<br>• Correctly identifies overlapping/nested topics (e.g., distinguishing 'transformer architectures' from 'attention mechanisms' while recognizing their relationship)<br>• Returns output as a valid JSON array of strings with no additional formatting or explanations</td>
+                <td class="output"><pre>```json
+{
+  "key_topics": [
+    "Machine learning",
+    "Natural language processing",
+    "Transformer architectures",
+    "Attention mechanisms",
+    "Neural networks",
+    "Machine translation",
+    "Sentiment analysis",
+    "Question-answering systems",
+    "Large language models",
+    "Distributed computing",
+    "Model interpretability",
+    "Deep learning",
+    "Bias in training data",
+    "Environmental costs",
+    "AI ethics"
+  ]
+}
+```</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution identifies all relevant topics from the passage with appropriate granularity and correctly recognizes overlapping/nested concepts. However, it critically fails the mandatory requirement that the response should be 'a JSON array of strings containing each topic' with 'nothing else'. Instead of returning a plain array like ["Machine learning", "Natural language processing", ...], the solution wraps the topics in an object with a 'key_topics' key. This violates the explicit instruction that 'Response should contain the JSON array and nothing else.' Despite strong topic selection quality, this structural violation of mandatory requirements results in automatic failure scoring.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

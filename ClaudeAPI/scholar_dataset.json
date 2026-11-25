@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in CRISPR gene-editing technology have demonstrated remarkable therapeutic potential for treating genetic diseases, yet significant ethical concerns persist regarding germline modifications and equitable access. While laboratory studies show 94% success rates in correcting mutations associated with cystic fibrosis and sickle cell anemia, regulatory frameworks remain fragmented across jurisdictions. Policymakers must balance innovation incentives with biosafety protocols, while bioethicists debate the moral implications of human enhancement versus disease prevention. Furthermore, patent landscapes and pharmaceutical pricing models directly influence whether these treatments remain accessible only to wealthy populations or can be distributed equitably in developing nations."
+    },
+    "solution_criteria": [
+      "Extracts all major subject areas: biology/genetics, ethics, and policy/regulatory topics",
+      "Returns output as a JSON array of strings",
+      "Identifies distinct topics without redundancy or over-granulation"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with interdisciplinary passage containing mixed topics (biology, ethics, policy) to verify accurate identification of multiple distinct subject areas"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The epistemological implications of quantum mechanics have long challenged our understanding of observation and reality. While early interpretations emphasized the role of the observer in collapsing wave functions, contemporary research increasingly examines how decoherence mechanisms operate at macroscopic scales, suggesting that the apparent classical world emerges through environmental interaction rather than conscious measurement. This perspective shifts focus from fundamental measurement paradoxes toward the thermodynamic constraints governing information loss in complex systems, connecting quantum foundations to statistical mechanics and information theory in ways that bear unexpected relevance to artificial neural network architectures and their capacity for pattern recognition."
+    },
+    "solution_criteria": [
+      "Identifies both explicitly named topics (quantum mechanics, decoherence, wave functions) and implicitly conveyed topics (epistemology, observation, measurement, thermodynamics, information theory, neural networks, pattern recognition)",
+      "Demonstrates contextual understanding by recognizing that 'environmental interaction' and 'information loss' are distinct conceptual topics despite being embedded within discussions of decoherence",
+      "Avoids treating surface-level terminology as independent topics while capturing the underlying subject areas that give the passage intellectual substance"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with passage containing implicit and subtle topics that require contextual understanding beyond surface-level keyword matching"
+  },
+  {
+    "prompt_inputs": {
+      "content": "The quantum entanglement phenomenon exhibits non-local correlations that persist even when spatially separated particles are measured in complementary bases, violating Bell's inequalities and constraining hidden variable theories. Recent advances in photonic quantum computing leverage silicon photonics to implement boson sampling protocols that demonstrate quantum advantage, while simultaneously exploring topological error correction through stabilizer codes that encode logical qubits in 2D surface lattices. Furthermore, variational quantum eigensolvers (VQE) combined with ansatz circuits derived from ansatz optimization strategies enable efficient calculation of ground-state energies in molecular Hamiltonians, particularly for fermionic systems described using the Jordan-Wigner transformation and qubit tapering techniques to reduce circuit depth."
+    },
+    "solution_criteria": [
+      "Extracts all major technical concepts and specialized terminology (e.g., quantum entanglement, Bell's inequalities, boson sampling, stabilizer codes, VQE, Jordan-Wigner transformation)",
+      "Returns output as a valid JSON array of strings",
+      "Captures both foundational concepts and advanced methodological approaches without omissions"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with highly technical domain-specific passage (e.g., quantum physics or molecular biology) to verify handling of specialized terminology and niche concepts"
+  },
+  {
+    "prompt_inputs": {
+      "content": "Recent advances in machine learning have demonstrated significant improvements in natural language processing through transformer architectures. These neural networks utilize attention mechanisms to process sequential data, enabling applications in machine translation, sentiment analysis, and question-answering systems. The scalability of large language models depends critically on distributed computing infrastructure, while their interpretability remains challenging due to the black-box nature of deep learning. Furthermore, ethical concerns regarding bias in training data and environmental costs of computational resources have emerged as important considerations in AI development."
+    },
+    "solution_criteria": [
+      "Extracts topics at appropriate granularity level, avoiding both over-specificity (e.g., 'carbon-fiber composite blades') and excessive generalization (e.g., 'technology')",
+      "Correctly identifies overlapping/nested topics (e.g., distinguishing 'transformer architectures' from 'attention mechanisms' while recognizing their relationship)",
+      "Returns output as a valid JSON array of strings with no additional formatting or explanations"
+    ],
+    "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+    "scenario": "Testing with brief passage or passage with overlapping/nested topics to verify the prompt handles edge cases like topic ambiguity and determines appropriate granularity level"
+  }
+]
